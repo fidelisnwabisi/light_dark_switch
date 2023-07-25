@@ -26,6 +26,8 @@ class ThemeProvider with ChangeNotifier {
     }
   }
 
+  toggleThemeData() {}
+
   ThemeData themeData() {
     return ThemeData(
       brightness: isLightTheme ? Brightness.light : Brightness.dark,
