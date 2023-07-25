@@ -1,10 +1,30 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter/services.dart';
 import 'constant/constant.dart';
 
-class ThemeProvider {
+class ThemeProvider with ChangeNotifier {
   bool isLightTheme;
   ThemeProvider({required this.isLightTheme});
+
+  getCurrentStatusNavigationBarColor() {
+    if (isLightTheme) {
+      SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarBrightness: Brightness.light,
+        statusBarIconBrightness: Brightness.dark,
+        systemNavigationBarColor: Colors.white,
+        systemNavigationBarIconBrightness: Brightness.dark,
+      ));
+    } else {
+      SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarBrightness: Brightness.dark,
+        statusBarIconBrightness: Brightness.light,
+        systemNavigationBarColor: AppColors.navColor,
+        systemNavigationBarIconBrightness: Brightness.light,
+      ));
+    }
+  }
 
   ThemeData themeData() {
     return ThemeData(

@@ -12,6 +12,7 @@ class AppColors {
   static const Color lightGrey = Color(0xFFAFAFAF);
   static const Color red = Color(0xFFD32F2F);
   static const Color green = Color(0xFF388E3C);
+  static const Color navColor = Color(0xFF26242e);
 }
 
 class SPref {
