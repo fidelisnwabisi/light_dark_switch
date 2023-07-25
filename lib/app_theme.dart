@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'constant/constant.dart';
 
 class ThemeProvider with ChangeNotifier {
@@ -26,6 +27,7 @@ class ThemeProvider with ChangeNotifier {
     }
   }
 
+  // use to toggle the theme
   toggleThemeData() {}
 
   ThemeData themeData() {
@@ -33,6 +35,19 @@ class ThemeProvider with ChangeNotifier {
       brightness: isLightTheme ? Brightness.light : Brightness.dark,
       scaffoldBackgroundColor:
           isLightTheme ? AppColors.yellow : AppColors.black,
+      textTheme: TextTheme(
+        displayLarge: GoogleFonts.stickNoBills(
+          fontSize: 70,
+          fontWeight: FontWeight.w600,
+          color:
+              isLightTheme ? AppColors.black : Color.fromARGB(255, 53, 52, 51),
+        ),
+        displayMedium: GoogleFonts.robotoCondensed(
+          fontWeight: FontWeight.w500,
+          color:
+              isLightTheme ? AppColors.black : Color.fromARGB(255, 53, 52, 51),
+        ),
+      ),
     );
   }
 
