@@ -13,3 +13,7 @@ class AppColors {
   static const Color red = Color(0xFFD32F2F);
   static const Color green = Color(0xFF388E3C);
 }
+
+class SPref {
+  static const String isLight = "isLight";
+}
