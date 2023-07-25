@@ -51,7 +51,7 @@ class ThemeProvider with ChangeNotifier {
 }
 
 class ThemeMode {
-  List? gradientColors;
+  List<Color>? gradientColors;
   Color? switchColor;
   Color? thumbColor;
   Color? switchBGColor;

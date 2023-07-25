@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:light_dark_switch/constant/constant.dart';
+import 'package:light_dark_switch/app_theme.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -13,12 +13,13 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-          // decoration: const BoxDecoration(
-          //   gradient: RadialGradient(
-          //     colors: [AppColors.yellow, AppColors.orange],
-          //   ),
-          // ),
+        decoration: BoxDecoration(
+          gradient: RadialGradient(
+            colors:
+                ThemeProvider(isLightTheme: true).themeMode().gradientColors!,
           ),
+        ),
+      ),
     );
   }
 }
