@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:light_dark_switch/app_theme.dart';
 import 'package:light_dark_switch/constant/constant.dart';
 
@@ -30,6 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       DateTime.now().hour.toString(),
@@ -51,6 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           .displayLarge!
                           .copyWith(color: AppColors.white),
                     ),
+                    const Spacer(),
                     const Text(
                       "Light and Dark\nPersonal\nSwitch",
                       style: TextStyle(
@@ -58,6 +61,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
+                    const Spacer(),
+
                     Container(
                       width: size.width * .2,
                       height: size.width * .2,
@@ -67,6 +72,38 @@ class _HomeScreenState extends State<HomeScreen> {
                             .switchColor,
                         borderRadius: BorderRadius.circular(8),
                       ),
+                      child: const Icon(
+                        Icons.nights_stay_outlined,
+                        size: 50,
+                        color: AppColors.white,
+                      ),
+                    ),
+                    SizedBox(
+                      width: size.width * .2,
+                      child: const Divider(
+                        // height: 0,
+                        thickness: 1,
+                        color: AppColors.white,
+                      ),
+                    ),
+                    Text(
+                      "30\u00B0C",
+                      style:
+                          Theme.of(context).textTheme.displayMedium!.copyWith(
+                                color: AppColors.white,
+                              ),
+                    ),
+                    Text(
+                      "Clear",
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ),
+                    Text(
+                      DateFormat("EEEE").format(DateTime.now()),
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ),
+                    Text(
+                      DateFormat("MMMM d").format(DateTime.now()),
+                      style: Theme.of(context).textTheme.titleLarge,
                     ),
                   ],
                 ),
