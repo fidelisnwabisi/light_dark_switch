@@ -39,13 +39,11 @@ class ThemeProvider with ChangeNotifier {
         displayLarge: GoogleFonts.stickNoBills(
           fontSize: 70,
           fontWeight: FontWeight.w600,
-          color:
-              isLightTheme ? AppColors.black : Color.fromARGB(255, 53, 52, 51),
+          color: isLightTheme ? AppColors.black : AppColors.orange,
         ),
         displayMedium: GoogleFonts.robotoCondensed(
           fontWeight: FontWeight.w500,
-          color:
-              isLightTheme ? AppColors.black : Color.fromARGB(255, 53, 52, 51),
+          color: isLightTheme ? AppColors.black : AppColors.orange,
         ),
       ),
     );
