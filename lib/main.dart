@@ -25,7 +25,7 @@ class AppStart extends StatelessWidget {
       ChangeNotifierProvider(
         create: (_) => ThemeProvider(isLightTheme: isLightTheme),
       ),
-    ], child: MyApp());
+    ], child: const MyApp());
   }
 }
 
@@ -35,10 +35,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeProvider(isLightTheme: true).themeData(),
+      theme: themeProvider.themeData(),
       home: const HomeScreen(),
     );
   }

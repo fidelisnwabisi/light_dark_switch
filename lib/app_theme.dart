@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'constant/constant.dart';
 
 class ThemeProvider with ChangeNotifier {
@@ -28,7 +29,20 @@ class ThemeProvider with ChangeNotifier {
   }
 
   // use to toggle the theme
-  toggleThemeData() {}
+  toggleThemeData() async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    if (isLightTheme) {
+      sharedPreferences.setBool(SPref.isLight, false);
+      isLightTheme = !isLightTheme;
+      notifyListeners();
+    } else {
+      sharedPreferences.setBool(SPref.isLight, true);
+      isLightTheme = !isLightTheme;
+      notifyListeners();
+    }
+    getCurrentStatusNavigationBarColor();
+    notifyListeners();
+  }
 
   ThemeData themeData() {
     return ThemeData(

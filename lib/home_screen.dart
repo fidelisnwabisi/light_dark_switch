@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:light_dark_switch/app_theme.dart';
 import 'package:light_dark_switch/constant/constant.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -14,14 +15,18 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
+
     return Scaffold(
+      floatingActionButton: FloatingActionButton(onPressed: () {
+        themeProvider.toggleThemeData();
+      }),
       body: Container(
         decoration: BoxDecoration(
           gradient: RadialGradient(
             center: const Alignment(-0.8, -0.3),
             radius: 1,
-            colors:
-                ThemeProvider(isLightTheme: true).themeMode().gradientColors!,
+            colors: themeProvider.themeMode().gradientColors!,
           ),
         ),
         child: Stack(
@@ -62,14 +67,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     const Spacer(),
-
                     Container(
                       width: size.width * .2,
                       height: size.width * .2,
                       decoration: BoxDecoration(
-                        color: ThemeProvider(isLightTheme: true)
-                            .themeMode()
-                            .switchColor,
+                        color: themeProvider.themeMode().switchColor,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: const Icon(
