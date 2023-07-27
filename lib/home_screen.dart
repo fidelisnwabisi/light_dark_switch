@@ -12,6 +12,27 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  Offset initialPosition = const Offset(250, 0);
+  Offset switchPosition = const Offset(350, 350);
+  Offset containerPosition = const Offset(350, 350);
+  Offset finalPosition = const Offset(350, 350);
+
+  @override
+  void didChangeDependencies() {
+    final Size size = MediaQuery.of(context).size;
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
+
+    initialPosition = Offset(size.width * .9, 0);
+    containerPosition = Offset(size.width * .9, size.width * .4);
+    finalPosition = Offset(size.width * .9, size.width * .5 - size.width * .1);
+    if (themeProvider.isLightTheme) {
+      switchPosition = containerPosition;
+    } else {
+      switchPosition = finalPosition;
+    }
+    super.didChangeDependencies();
+  }
+
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -44,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     // ignore: prefer_const_constructors
                     SizedBox(
-                      width: size.width * .2,
+                      width: size.width * .17,
                       child: const Divider(
                         height: 0,
                         thickness: 1,
@@ -111,6 +132,21 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
+            Positioned(
+              top: containerPosition.dy - size.width * .1 / 2 + 150,
+              left: containerPosition.dx - size.width * .1 / 2 - 5,
+              child: Container(
+                width: size.width * .1 + 10,
+                height: size.height * .1 + 10,
+                decoration: BoxDecoration(
+                  color: themeProvider.themeMode().switchBGColor!,
+                  borderRadius: BorderRadius.circular(30),
+                ),
+              ),
+            ),
+            // Wire(
+            //   initialPosition: initialPosition,
+            // )
           ],
         ),
       ),
