@@ -44,8 +44,13 @@ class WirePainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    // TODO: implement shouldRepaint
-    throw UnimplementedError();
+    if (oldDelegate is WirePainter) {
+      // Compare the properties of oldDelegate with the current instance
+      return oldDelegate.initialPosition != initialPosition ||
+          oldDelegate.toOffset != toOffset ||
+          oldDelegate.themeProvider != themeProvider;
+    }
+    return true; // Return true by default to ensure the initial paint occurs.
   }
 
   // @override
