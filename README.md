@@ -15,4 +15,8 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
-There is an Error showing up on my screen and its quite different from the tutorial i went through
+# Source of Tutorial
+[Light and Dark Themed App Flutter | Speed Code - YouTube](https://www.youtube.com/watch?v=MC2VYJgwXcg)
+
+# Screencast
+![Alt text](screenshot/ezgif-3-85b808f204.gif)
