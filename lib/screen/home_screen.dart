@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:light_dark_switch/app_theme.dart';
 import 'package:light_dark_switch/constant/constant.dart';
+import 'package:light_dark_switch/screen/components/wire_draw.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -60,7 +61,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      DateTime.now().hour.toString(),
+                      // DateTime.now().hour.toString(),
+                      "17",
                       style: Theme.of(context).textTheme.displayLarge,
                     ),
                     // ignore: prefer_const_constructors
@@ -73,7 +75,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     Text(
-                      DateTime.now().minute.toString(),
+                      // DateTime.now().minute.toString(),
+                      "22",
                       style: Theme.of(context)
                           .textTheme
                           .displayLarge!
@@ -133,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             Positioned(
-              top: containerPosition.dy - size.width * .1 / 2 + 150,
+              top: containerPosition.dy - size.width * .1 / 2 - 5,
               left: containerPosition.dx - size.width * .1 / 2 - 5,
               child: Container(
                 width: size.width * .1 + 10,
@@ -144,9 +147,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            // Wire(
-            //   initialPosition: initialPosition,
-            // )
+            Wire(
+              initialPosition: initialPosition,
+              toOffset: switchPosition,
+            )
           ],
         ),
       ),
