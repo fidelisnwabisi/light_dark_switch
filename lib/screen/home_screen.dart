@@ -138,7 +138,8 @@ class LeftPart extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding:
+            const EdgeInsets.symmetric(horizontal: 20).copyWith(bottom: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
